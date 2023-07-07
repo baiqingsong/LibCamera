@@ -6,6 +6,7 @@
 
 * getInstance 获取摄像头工厂对象
 * initCamera 初始化摄像头
+* changeOrientation 改变摄像头方向
 * createRenderer 创建渲染器
 * rendererOnResume 渲染器onResume
 * rendererOnPause 渲染器onPause

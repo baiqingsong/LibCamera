@@ -57,6 +57,15 @@ public class CameraFactory {
     }
 
     /**
+     * 切换方向
+     * @param cameraOrientation 摄像头方向
+     */
+    public void changeOrientation(int cameraOrientation){
+        this.mCameraOrientation = cameraOrientation;
+        mCameraUtil.changeOrientation(mCameraOrientation);//设置摄像头方向
+    }
+
+    /**
      * render创建
      * @param glSurfaceView 控件
      */
