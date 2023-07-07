@@ -17,6 +17,7 @@
 * selectFilter 选择滤镜
 * selectSticker 选择贴纸
 * hasCamera 查看是否有摄像头
+* getTakePhotoBitmap 获取拍照的Bitmap
 
 #### FILTER_TYPE
 滤镜类型

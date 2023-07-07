@@ -13,6 +13,7 @@ import androidx.annotation.IdRes;
 import com.dawn.camera.custom.CameraEffect;
 import com.dawn.camera.custom.CameraUtil;
 import com.dawn.camera.custom.util.CameraUtils;
+import com.dawn.camera.utils.BitmapUtil;
 import com.dawn.camera.utils.Constant;
 
 public class CameraFactory {
@@ -232,6 +233,13 @@ public class CameraFactory {
      */
     public boolean hasCamera(){
         return CameraUtils.isCamera();
+    }
+
+    /**
+     * 获取拍照的bitmap
+     */
+    public void getTakePhotoBitmap(int texId, float[] texMatrix, float[] mvpMatrix, final int texWidth, final int texHeight, final BitmapUtil.OnReadBitmapListener listener){
+        BitmapUtil.glReadBitmap(texId, texMatrix, mvpMatrix, texWidth, texHeight, listener, false);
     }
 
 
