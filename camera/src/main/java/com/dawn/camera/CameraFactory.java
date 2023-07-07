@@ -12,6 +12,7 @@ import androidx.annotation.IdRes;
 
 import com.dawn.camera.custom.CameraEffect;
 import com.dawn.camera.custom.CameraUtil;
+import com.dawn.camera.custom.util.CameraUtils;
 import com.dawn.camera.utils.Constant;
 
 public class CameraFactory {
@@ -224,6 +225,13 @@ public class CameraFactory {
      */
     public void selectSticker(CameraEffect cameraEffect){
         mCameraUtil.selectSticker(cameraEffect);
+    }
+
+    /**
+     * 是否有摄像头
+     */
+    public boolean hasCamera(){
+        return CameraUtils.isCamera();
     }
 
 

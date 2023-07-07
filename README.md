@@ -16,6 +16,7 @@
 * setFilterParam 设置滤镜参数
 * selectFilter 选择滤镜
 * selectSticker 选择贴纸
+* hasCamera 查看是否有摄像头
 
 #### FILTER_TYPE
 滤镜类型
