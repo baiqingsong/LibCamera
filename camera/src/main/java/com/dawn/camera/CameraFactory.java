@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.hardware.Camera;
 import android.opengl.GLSurfaceView;
+import android.text.TextUtils;
 
 import androidx.annotation.IdRes;
 
@@ -76,7 +77,8 @@ public class CameraFactory {
         mCameraUtil.createRenderer(activity, glSurfaceView, new OnCameraListener() {
             @Override
             public void onCameraCreate() {
-                mCameraUtil.selectM1();
+                if(listener != null)
+                    listener.onCameraCreate();
             }
 
             @Override
@@ -206,8 +208,12 @@ public class CameraFactory {
     /**
      * 设置贴图
      */
-    public void selectSticker(String bundlePath, STICKER_TYPE type, String iconPath){
-        CameraEffect cameraEffect = new CameraEffect("sticker" + System.currentTimeMillis(), 0, bundlePath, type.getValue());
+    public void selectSticker(String iconPath, String bundlePath){
+        CameraEffect cameraEffect = null;
+        if(TextUtils.isEmpty(bundlePath))
+            cameraEffect = new CameraEffect("sticker" + System.currentTimeMillis(), 0, bundlePath, CameraEffect.EFFECT_TYPE_NONE);
+        else
+            cameraEffect = new CameraEffect("sticker" + System.currentTimeMillis(), 0, bundlePath, CameraEffect.EFFECT_TYPE_STICKER);
         cameraEffect.setIconPath(iconPath);
         selectSticker(cameraEffect);
     }
