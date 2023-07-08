@@ -344,12 +344,12 @@ public class FURenderer implements OnFUControlListener {
         try {
             is = context.getAssets().open(path);
         } catch (IOException e1) {
-            Log.w(TAG, "readFile: e1", e1);
+//            Log.w(TAG, "readFile: e1", e1);
             // open assets failed, then try sdcard
             try {
                 is = new FileInputStream(path);
             } catch (IOException e2) {
-                Log.w(TAG, "readFile: e2", e2);
+//                Log.w(TAG, "readFile: e2", e2);
             }
         }
         if (is != null) {
