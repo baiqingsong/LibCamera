@@ -16,6 +16,8 @@ import com.dawn.camera.custom.util.CameraUtils;
 import com.dawn.camera.utils.BitmapUtil;
 import com.dawn.camera.utils.Constant;
 
+import java.io.File;
+
 public class CameraFactory {
     private Context mContext;
     //单例
@@ -212,7 +214,7 @@ public class CameraFactory {
      */
     public void selectSticker(String iconPath, String bundlePath){
         CameraEffect cameraEffect = null;
-        if(TextUtils.isEmpty(bundlePath))
+        if(TextUtils.isEmpty(bundlePath) || !new File(bundlePath).exists())
             cameraEffect = new CameraEffect("sticker" + System.currentTimeMillis(), 0, bundlePath, CameraEffect.EFFECT_TYPE_NONE);
         else
             cameraEffect = new CameraEffect("sticker" + System.currentTimeMillis(), 0, bundlePath, CameraEffect.EFFECT_TYPE_STICKER);
