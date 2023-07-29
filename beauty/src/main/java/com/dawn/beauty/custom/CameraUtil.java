@@ -3,6 +3,7 @@ package com.dawn.beauty.custom;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.hardware.Camera;
 import android.opengl.GLSurfaceView;
 import android.text.TextUtils;
 import android.util.Log;
@@ -149,6 +150,11 @@ public class CameraUtil {
             glSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
         }
 
+    }
+
+    public void switchCamera(){
+        if(mCameraRenderer != null)
+            mCameraRenderer.switchCamera();
     }
 
     /**

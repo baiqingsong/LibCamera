@@ -100,6 +100,11 @@ public class CameraFactory {
         });
     }
 
+    public void switchCamera(){
+        if(mCameraUtil != null)
+            mCameraUtil.switchCamera();
+    }
+
     /**
      * 开始
      */

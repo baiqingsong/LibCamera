@@ -41,6 +41,7 @@ public class Camera1Renderer extends BaseCameraRenderer implements Camera.Previe
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         for (int i = 0; i < number; i++) {
             Camera.getCameraInfo(i, cameraInfo);
+            Log.e("dawn", "facing " + cameraInfo.facing + "i : " + i + " " + number);
             if (cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
                 mFrontCameraId = i;
                 mFrontCameraOrientation = cameraInfo.orientation;
