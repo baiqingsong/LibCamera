@@ -3,11 +3,13 @@ package com.dawn.libcamera;
 import android.app.Activity;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 
 import com.dawn.beauty.CameraFactory;
+import com.dawn.beauty.utils.Constant;
 
 public class TakePhotoActivity extends Activity {
     CameraFactory cameraFactory;
@@ -19,6 +21,13 @@ public class TakePhotoActivity extends Activity {
         cameraFactory = CameraFactory.getInstance(this);
         mGlSurfaceView = findViewById(R.id.glSurfaceView);
         cameraFactory.createRenderer(this, mGlSurfaceView, null);
+
+        new Handler().postDelayed(() -> {
+
+            cameraFactory.setBeautyParam(1, 1, 0.8f, 1);
+            cameraFactory.setFilterParam(1, 1, 1, 1, 1, 1);
+            cameraFactory.selectFilter(CameraFactory.FILTER_TYPE.FILTER_HEI_BAI);
+        }, 500);
     }
 
     @Override
