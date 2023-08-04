@@ -40,8 +40,8 @@ public class BaseCameraRenderer implements GLSurfaceView.Renderer {
     public static final int FACE_FRONT = Camera.CameraInfo.CAMERA_FACING_FRONT;
     public static final int FRONT_CAMERA_ORIENTATION = 270;
     public static final int BACK_CAMERA_ORIENTATION = 90;
-    public static final int DEFAULT_PREVIEW_WIDTH = 2592;
-    public static final int DEFAULT_PREVIEW_HEIGHT = 1944;
+    public static final int DEFAULT_PREVIEW_WIDTH = 1920;
+    public static final int DEFAULT_PREVIEW_HEIGHT = 1080;
     public static final int PREVIEW_BUFFER_SIZE = 3;
     private static final float[] TEXTURE_MATRIX = {0.0f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f};
     protected int mViewWidth;
