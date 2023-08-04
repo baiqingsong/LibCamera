@@ -1,14 +1,17 @@
 package com.dawn.libcamera;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 
 import com.dawn.beauty.CameraFactory;
+import com.dawn.beauty.OnCameraListener;
 import com.dawn.beauty.utils.Constant;
 
 public class TakePhotoActivity extends Activity {
@@ -20,7 +23,23 @@ public class TakePhotoActivity extends Activity {
         setContentView(R.layout.activity_take_photo);
         cameraFactory = CameraFactory.getInstance(this);
         mGlSurfaceView = findViewById(R.id.glSurfaceView);
-        cameraFactory.createRenderer(this, mGlSurfaceView, null);
+        cameraFactory.createRenderer(this, mGlSurfaceView, new OnCameraListener() {
+            @Override
+            public void onCameraCreate() {
+
+            }
+
+            @Override
+            public void getPhoto(Bitmap bitmap, int picIndex, int width, int height) {
+                FileUtil.saveBitmap(TakePhotoActivity.this, bitmap, "test.jpg");
+                Log.i("dawn", "save bitmap");
+            }
+
+            @Override
+            public void onDrawFrame(int texId, float[] mvpMatrix, float[] texMatrix, int texWidth, int texHeight, int currentPicIndex, int currentWidth, int currentHeight) {
+
+            }
+        });
 
         new Handler().postDelayed(() -> {
 
@@ -46,5 +65,10 @@ public class TakePhotoActivity extends Activity {
 
     public void switchCamera(View view){
         cameraFactory.switchCamera();
+    }
+
+    public void takePhoto(View view){
+        //2592*1944
+        cameraFactory.takePhoto(1, 2592, 1944);
     }
 }

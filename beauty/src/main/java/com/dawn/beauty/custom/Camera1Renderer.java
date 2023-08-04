@@ -98,9 +98,9 @@ public class Camera1Renderer extends BaseCameraRenderer implements Camera.Previe
             mCameraHeight = size[1];
             Log.i("dawn", "预览分辨率：" + mCameraWidth + "*" + mCameraHeight);
 
-//            for(int i = 0; i < mCamera.getParameters().getSupportedPictureSizes().size();i ++){
-//                LLog.i("支持分辨率:" + mCamera.getParameters().getSupportedPictureSizes().get(i).width + "*" + mCamera.getParameters().getSupportedPictureSizes().get(i).height);
-//            }
+            for(int i = 0; i < mCamera.getParameters().getSupportedPictureSizes().size();i ++){
+                Log.i("dawn", "支持分辨率:" + mCamera.getParameters().getSupportedPictureSizes().get(i).width + "*" + mCamera.getParameters().getSupportedPictureSizes().get(i).height);
+            }
             parameters.setPreviewFormat(ImageFormat.NV21);
             CameraUtils.setParameters(mCamera, parameters);
 
