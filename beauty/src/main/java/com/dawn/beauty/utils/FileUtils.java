@@ -16,8 +16,11 @@ import java.math.BigInteger;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 /**
@@ -261,5 +264,34 @@ public class FileUtils {
         if (file.exists()) {
             file.delete();
         }
+    }
+
+    public static File getCacheVideoFile(Context context){
+        File fileDir = new File(getExternalFileDir(context).getPath() + File.separator + "video");
+        if (!fileDir.exists()) {
+            fileDir.mkdirs();
+        }
+        File file = new File(fileDir, getCurrentVideoFileName());
+        if (file.exists()) {
+            file.delete();
+        }
+        return file;
+    }
+
+    /**
+     * 构造视频文件名称
+     *
+     */
+    private static String getCurrentVideoFileName(){
+        return getDateTimeString() + ".mp4";
+    }
+
+    /**
+     * 获取当前时间日期
+     *
+     */
+    private static String getDateTimeString(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US);
+        return sdf.format(new Date());
     }
 }

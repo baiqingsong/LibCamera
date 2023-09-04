@@ -1,0 +1,97 @@
+--------- beginning of main
+09-04 11:37:30.526   429   446 W system_server: kill(-2902, 9) failed: No such process
+09-04 11:37:30.569   429   446 W system_server: kill(-2902, 9) failed: No such process
+09-04 11:37:30.569   429   446 I system_server: Successfully killed process cgroup uid 10048 pid 2902 in 450ms
+09-04 11:37:30.569   429   446 W system_server: kill(-1238, 9) failed: No such process
+09-04 11:37:30.612   429   446 W system_server: kill(-1238, 9) failed: No such process
+09-04 11:37:30.612   429   446 I system_server: Successfully killed process cgroup uid 10014 pid 1238 in 43ms
+09-04 11:44:48.676   429   446 W system_server: kill(-3532, 9) failed: No such process
+09-04 11:44:48.688   429  3222 E ActivityManager: getPackageFerformanceMode--ComponentInfo{com.android.launcher3/com.android.launcher3.Launcher}----com.android.launcher3
+09-04 11:44:48.713   667   667 E PhoneInterfaceManager: [PhoneIntfMgr] getCarrierPackageNamesForIntent: No UICC
+09-04 11:44:48.713   667   667 D CarrierSvcBindHelper: No carrier app for: 0
+09-04 11:44:48.719   429   446 W system_server: kill(-3532, 9) failed: No such process
+09-04 11:44:48.720   225   225 D hwcomposer-drm: hwc_set: layers_map size is 0
+09-04 11:44:48.720   225   225 E hwcomposer-drm: hwc_set: not normal frame happen
+09-04 11:44:48.720   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.720   225   225 D hwc_debug: 	layer=0xabdf0218,type=3,hints=3,flags=0,handle=0xabdb7380,format=0x1,fd =32,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.720   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.720   225   225 D hwc_debug: 	layer=0xabdf0318,type=3,hints=3,flags=0,handle=0xabdb7500,format=0x1,fd =48,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.728   225   225 D hwcomposer-drm: hwc_set: layers_map size is 0
+09-04 11:44:48.728   225   225 E hwcomposer-drm: hwc_set: not normal frame happen
+09-04 11:44:48.728   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.728   225   225 D hwc_debug: 	layer=0xabdf0418,type=3,hints=3,flags=0,handle=0xabdb7380,format=0x1,fd =32,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.729   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.729   225   225 D hwc_debug: 	layer=0xabdf0218,type=3,hints=3,flags=0,handle=0xabdb7500,format=0x1,fd =48,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.739   225   225 D hwcomposer-drm: hwc_set: layers_map size is 0
+09-04 11:44:48.739   225   225 E hwcomposer-drm: hwc_set: not normal frame happen
+09-04 11:44:48.739   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.739   225   225 D hwc_debug: 	layer=0xabdf0318,type=3,hints=3,flags=0,handle=0xabdb7380,format=0x1,fd =32,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.740   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.740   225   225 D hwc_debug: 	layer=0xabdf0418,type=3,hints=3,flags=0,handle=0xabdb7500,format=0x1,fd =48,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.754   225   225 D hwcomposer-drm: hwc_set: layers_map size is 0
+09-04 11:44:48.754   225   225 E hwcomposer-drm: hwc_set: not normal frame happen
+09-04 11:44:48.754   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.754   225   225 D hwc_debug: 	layer=0xabdf0218,type=3,hints=3,flags=0,handle=0xabdb7380,format=0x1,fd =32,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.754   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.754   225   225 D hwc_debug: 	layer=0xabdf0318,type=3,hints=3,flags=0,handle=0xabdb7500,format=0x1,fd =48,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.764   429   446 W system_server: kill(-3532, 9) failed: No such process
+09-04 11:44:48.768   225   225 D hwcomposer-drm: hwc_set: layers_map size is 0
+09-04 11:44:48.768   225   225 E hwcomposer-drm: hwc_set: not normal frame happen
+09-04 11:44:48.768   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.768   225   225 D hwc_debug: 	layer=0xabdf0418,type=3,hints=3,flags=0,handle=0xabdb7380,format=0x1,fd =32,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.769   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.769   225   225 D hwc_debug: 	layer=0xabdf0218,type=3,hints=3,flags=0,handle=0xabdb7500,format=0x1,fd =48,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.783   225   225 D hwcomposer-drm: hwc_set: layers_map size is 0
+09-04 11:44:48.783   225   225 E hwcomposer-drm: hwc_set: not normal frame happen
+09-04 11:44:48.783   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.783   225   225 D hwc_debug: 	layer=0xabdf0318,type=3,hints=3,flags=0,handle=0xabdb7380,format=0x1,fd =32,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.783   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.783   225   225 D hwc_debug: 	layer=0xabdf0418,type=3,hints=3,flags=0,handle=0xabdb7500,format=0x1,fd =48,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.797  1064  1167 D mali_winsys: EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, egl_color_buffer_format *, EGLBoolean) returns 0x3000
+09-04 11:44:48.809   429   446 W system_server: kill(-3532, 9) failed: No such process
+09-04 11:44:48.832   225   225 D hwcomposer-drm: hwc_set: layers_map size is 0
+09-04 11:44:48.832   225   225 E hwcomposer-drm: hwc_set: not normal frame happen
+09-04 11:44:48.832   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.832   225   225 D hwc_debug: 	layer=0xabdf0218,type=3,hints=3,flags=0,handle=0xabdb7380,format=0x1,fd =32,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.832   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.832   225   225 D hwc_debug: 	layer=0xabdf0318,type=3,hints=3,flags=0,handle=0xabdb7500,format=0x1,fd =48,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.841   225   225 D hwcomposer-drm: hwc_set: layers_map size is 0
+09-04 11:44:48.841   225   225 E hwcomposer-drm: hwc_set: not normal frame happen
+09-04 11:44:48.841   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.841   225   225 D hwc_debug: 	layer=0xabdf0418,type=3,hints=3,flags=0,handle=0xabdb7380,format=0x1,fd =32,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.841   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.841   225   225 D hwc_debug: 	layer=0xabdf0218,type=3,hints=3,flags=0,handle=0xabdb7500,format=0x1,fd =48,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.852   429   446 W system_server: kill(-3532, 9) failed: No such process
+09-04 11:44:48.856   225   225 D hwcomposer-drm: hwc_set: layers_map size is 0
+09-04 11:44:48.856   225   225 E hwcomposer-drm: hwc_set: not normal frame happen
+09-04 11:44:48.856   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.856   225   225 D hwc_debug: 	layer=0xabdf0318,type=3,hints=3,flags=0,handle=0xabdb7380,format=0x1,fd =32,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.856   225   225 D hwc_debug: layer[0]=
+09-04 11:44:48.856   225   225 D hwc_debug: 	layer=0xabdf0418,type=3,hints=3,flags=0,handle=0xabdb7500,format=0x1,fd =48,transform=0x0,blend=0x105,sourceCropf{0,0,1920,1080},sourceCrop{0,0,1156579328,1149698048},displayFrame{0,0,1920,1080},rect[0]={0,0,1920,1080},
+09-04 11:44:48.892   429   446 W system_server: kill(-3532, 9) failed: No such process
+09-04 11:44:48.892   429   446 I system_server: Successfully killed process cgroup uid 10048 pid 3532 in 216ms
+09-04 11:44:49.061   667   667 E PhoneInterfaceManager: [PhoneIntfMgr] getCarrierPackageNamesForIntent: No UICC
+09-04 11:44:49.061   667   667 D CarrierSvcBindHelper: No carrier app for: 0
+09-04 11:44:49.157   429  1035 E ActivityManager: getPackageFerformanceMode--ComponentInfo{com.dawn.libcamera/com.dawn.libcamera.MainActivity}----com.dawn.libcamera
+09-04 11:44:49.172   429  3699 E ActivityManager: getPackageFerformanceMode--ComponentInfo{com.dawn.libcamera/com.dawn.libcamera.MainActivity}----com.dawn.libcamera
+09-04 11:44:49.177   429   439 I zygote  : Background concurrent copying GC freed 46341(2MB) AllocSpace objects, 36(1488KB) LOS objects, 42% free, 6MB/12MB, paused 173us total 124.339ms
+09-04 11:44:49.205  3714  3714 I zygote  : Late-enabling -Xcheck:jni
+09-04 11:44:49.392   232   291 E BufferQueueProducer: [com.android.launcher3/com.android.launcher3.Launcher#0] disconnect: not connected (req=1)
+09-04 11:44:49.393  1064  1167 W libEGL  : EGLNativeWindowType 0x9e6a6008 disconnect failed
+09-04 11:44:49.464  3701  3701 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+09-04 11:44:49.478  3701  3701 W app_process: Could not reserve sentinel fault page
+09-04 11:44:49.720  3701  3701 I app_process: The ClassLoaderContext is a special shared library.
+09-04 11:44:49.775  3714  3747 D OpenGLRenderer: HWUI GL Pipeline
+09-04 11:44:49.790  3701  3701 D AndroidRuntime: Calling main entry com.android.commands.wm.Wm
+09-04 11:44:49.794  3701  3701 D AndroidRuntime: Shutting down VM
+09-04 11:44:49.856  3714  3747 I mali_so : [File] : hardware/arm/maliT760/driver/product/base/src/mali_base_kbase.c; [Line] : 876; [Func] : base_context_deal_with_version_affairs_rk_ext;
+09-04 11:44:49.856  3714  3747 I mali_so : arm_release_ver of this mali_so is 'r18p0-01rel0', rk_so_ver is '11@0'.
+09-04 11:44:49.856  3714  3747 D mali_so : [File] : hardware/arm/maliT760/driver/product/base/src/mali_base_kbase.c; [Line] : 881; [Func] : base_context_deal_with_version_affairs_rk_ext;
+09-04 11:44:49.856  3714  3747 D mali_so : current process is NOT sf, to bail out.
+09-04 11:44:49.870  3714  3747 I com.dawn.libcamera: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+09-04 11:44:49.870  3714  3747 I OpenGLRenderer: Initialized EGL, version 1.4
+09-04 11:44:49.871  3714  3747 D OpenGLRenderer: Swap behavior 2
+09-04 11:44:49.921  3714  3747 D mali_winsys: EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, egl_color_buffer_format *, EGLBoolean) returns 0x3000
+09-04 11:44:50.050   429   451 I ActivityManager: Displayed com.dawn.libcamera/.MainActivity: +875ms
+09-04 11:44:50.051  1064  1167 W OpenGLRenderer: Incorrectly called buildLayer on View: ShortcutAndWidgetContainer, destroying layer...
+09-04 11:45:49.168   217   384 D CameraHal: camera_get_camera_info(1498): camera_get_camera_info(1498): camera_0 facing(1), orientation(0)

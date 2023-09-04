@@ -19,6 +19,7 @@
         android:onClick="switchCamera"/>
 
     <TextView
+        android:id="@+id/tv_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="拍照"
@@ -26,5 +27,33 @@
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:onClick="takePhoto"/>
+
+    <TextView
+        android:id="@+id/tv_start_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始录制"
+        android:textSize="60sp"
+        android:textColor="@color/white"
+        android:layout_below="@id/tv_photo"
+        android:layout_centerHorizontal="true"
+        android:onClick="startRecord"/>
+    <TextView
+        android:id="@+id/tv_stop_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="停止录制"
+        android:textSize="60sp"
+        android:textColor="@color/white"
+        android:layout_below="@id/tv_start_record"
+        android:layout_centerHorizontal="true"
+        android:onClick="stopRecord"/>
+
+    <ImageView
+        android:id="@+id/iv_photo"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

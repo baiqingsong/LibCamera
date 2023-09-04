@@ -8,13 +8,13 @@ import android.view.View;
 
 import com.dawn.beauty.CameraFactory;
 
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CameraFactory.getInstance(this).initCamera(authpack.A());
     }
 
     public void jumpToTakePhoto(View view){

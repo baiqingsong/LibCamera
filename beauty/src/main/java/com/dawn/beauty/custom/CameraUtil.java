@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.hardware.Camera;
+import android.opengl.EGL14;
 import android.opengl.GLSurfaceView;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,7 +16,11 @@ import com.dawn.beauty.custom.util.CameraUtils;
 import com.dawn.beauty.custom.util.GlUtil;
 import com.dawn.beauty.entity.Effect;
 import com.dawn.beauty.param.BeautificationParam;
+import com.dawn.beauty.record.media.video.OnVideoRecordingListener;
+import com.dawn.beauty.record.media.video.VideoRecordHelper;
 import com.dawn.beauty.utils.BitmapUtil;
+
+import java.io.File;
 
 public class CameraUtil {
     private Context mContext;
@@ -126,6 +131,7 @@ public class CameraUtil {
                     fuTexId = mFURenderer.onDrawFrame(cameraNv21Byte, cameraTexId, cameraWidth, cameraHeight);
                 }
                 getPic(fuTexId, GlUtil.IDENTITY_MATRIX, texMatrix, cameraWidth, cameraHeight);
+                getRecord(fuTexId, texMatrix, mvpMatrix);
                 if(mListener != null)
                     mListener.onDrawFrame(fuTexId, GlUtil.IDENTITY_MATRIX, texMatrix, cameraWidth, cameraHeight, currentPicIndex, currentWidth, currentHeight);
                 return fuTexId;
@@ -149,6 +155,24 @@ public class CameraUtil {
             glSurfaceView.setRenderer(mCameraRenderer);
             glSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
         }
+        mVideoRecordHelper = new VideoRecordHelper(mContext, new OnVideoRecordingListener() {
+            @Override
+            public void onPrepared() {
+                isRecordingPrepared = true;
+            }
+
+            @Override
+            public void onProcess(Long time) {
+
+            }
+
+            @Override
+            public void onFinish(File file) {
+                isRecordingPrepared = false;
+                if(listener != null)
+                    listener.getRecord(file);
+            }
+        });
 
     }
 
@@ -475,6 +499,24 @@ public class CameraUtil {
     public void closeCamera(){
         if(mCameraRenderer != null)
             mCameraRenderer.closeCamera();
+    }
+    private VideoRecordHelper mVideoRecordHelper;
+    private volatile boolean isRecordingPrepared = false;//是否开始视频录制
+    public void getRecord(int texId, float[] texMatrix, float[] mvpMatrix){
+        if (isRecordingPrepared) {
+            mVideoRecordHelper.frameAvailableSoon(texId, texMatrix, GlUtil.IDENTITY_MATRIX);
+        }
+    }
+
+    /**
+     * 开始录制
+     */
+    public void onStartRecord(GLSurfaceView surfaceView) {
+        mVideoRecordHelper.startRecording(surfaceView, mCameraRenderer.getCameraHeight(), mCameraRenderer.getCameraWidth());
+    }
+
+    public void onStopRecord() {
+        mVideoRecordHelper.stopRecording();
     }
 
 }

@@ -97,6 +97,12 @@ public class CameraFactory {
                 if(listener != null)
                     listener.onDrawFrame(texId, mvpMatrix, texMatrix, texWidth, texHeight, currentPicIndex, currentWidth, currentHeight);
             }
+
+            @Override
+            public void getRecord(File file) {
+                if(listener != null)
+                    listener.getRecord(file);
+            }
         });
     }
 
@@ -135,6 +141,14 @@ public class CameraFactory {
      */
     public void takePhoto(int picIndex, int width, int height){
         mCameraUtil.takePhoto(picIndex, width, height);
+    }
+
+    public void startRecord(GLSurfaceView surfaceView){
+        mCameraUtil.onStartRecord(surfaceView);
+    }
+
+    public void stopRecord(){
+        mCameraUtil.onStopRecord();
     }
 
     public enum FILTER_TYPE{FILTER_YUAN_TU, FILTER_HEI_BAI, FILTER_GE_XING, FILTER_ZHI_GAN_HUI, FILTER_MI_TAO, FILTER_XIAO_QING_XIN}

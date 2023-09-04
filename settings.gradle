@@ -1,3 +1,4 @@
 rootProject.name = "LibCamera"
 include ':app'
 include ':beauty'
+include ':beauty2'
