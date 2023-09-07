@@ -19,6 +19,7 @@ import com.dawn.beauty.param.BeautificationParam;
 import com.dawn.beauty.record.media.video.OnVideoRecordingListener;
 import com.dawn.beauty.record.media.video.VideoRecordHelper;
 import com.dawn.beauty.utils.BitmapUtil;
+import com.dawn.beauty.utils.Constant;
 
 import java.io.File;
 
@@ -337,9 +338,7 @@ public class CameraUtil {
             yuanTu = 1f;
         if(yuanTu < 0)
             yuanTu = 0f;
-        this.yuantu_level = yuanTu;
-        if(mFURenderer != null)
-            mFURenderer.setFilterLevel(yuantu_level);
+        yuantu_level = yuanTu;
     }
 
     /**
@@ -351,9 +350,7 @@ public class CameraUtil {
             heiBai = 1f;
         if(heiBai < 0)
             heiBai = 0f;
-        this.heibai_level = heiBai;
-        if(mFURenderer != null)
-            mFURenderer.setFilterLevel(heibai_level);
+        heibai_level = heiBai;
     }
 
     /**
@@ -365,9 +362,7 @@ public class CameraUtil {
             zhiGanHui = 1f;
         if(zhiGanHui < 0)
             zhiGanHui = 0f;
-        this.zhiganhui_level = zhiGanHui;
-        if(mFURenderer != null)
-            mFURenderer.setFilterLevel(zhiganhui_level);
+        zhiganhui_level = zhiGanHui;
     }
 
     /**
@@ -379,9 +374,7 @@ public class CameraUtil {
             geXing = 1f;
         if(geXing < 0)
             geXing = 0f;
-        this.gexing_level = geXing;
-        if(mFURenderer != null)
-            mFURenderer.setFilterLevel(gexing_level);
+        gexing_level = geXing;
     }
 
     /**
@@ -393,9 +386,7 @@ public class CameraUtil {
             miTao = 1f;
         if(miTao < 0)
             miTao = 0f;
-        this.mitao_level = miTao;
-        if(mFURenderer != null)
-            mFURenderer.setFilterLevel(mitao_level);
+        mitao_level = miTao;
     }
 
     /**
@@ -407,9 +398,7 @@ public class CameraUtil {
             xiaoQingXin = 1f;
         if(xiaoQingXin < 0)
             xiaoQingXin = 0f;
-        this.xiaoqingxin_level = xiaoQingXin;
-        if(mFURenderer != null)
-            mFURenderer.setFilterLevel(xiaoqingxin_level);
+        xiaoqingxin_level = xiaoQingXin;
     }
 
     /**
