@@ -29,6 +29,7 @@ public class TakePhotoActivity extends Activity {
 //    private CameraFactory2 cameraFactory2;
     private GLSurfaceView mGlSurfaceView;
     private ImageView ivPhoto;
+    private final static int colorDefault = -16380922;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -234,22 +235,24 @@ public class TakePhotoActivity extends Activity {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         for (int i = 0; i < width; i++) {//上边距
-            if (bitmap.getPixel(i, 0) != Color.BLACK) {
+            if (bitmap.getPixel(i, 0) != colorDefault) {
+                Log.i("dawn", "green " + Color.GREEN + " " + Color.BLACK);
+                Log.i("dawn", "bitmap i " + i + " color " + bitmap.getPixel(i, 0));
                 return false;
             }
         }
         for (int i = 0; i < height; i++) {// 右边距
-            if (bitmap.getPixel(width - 1, i) != Color.BLACK) {
+            if (bitmap.getPixel(width - 1, i) != colorDefault) {
                 return false;
             }
         }
         for (int i = 0; i < width; i++) {//下边距
-            if (bitmap.getPixel(i, height - 1) != Color.BLACK) {
+            if (bitmap.getPixel(i, height - 1) != colorDefault) {
                 return false;
             }
         }
         for (int i = 0; i < height; i++) {// 左边距
-            if (bitmap.getPixel(0, i) != Color.BLACK) {
+            if (bitmap.getPixel(0, i) != colorDefault) {
                 return false;
             }
         }
