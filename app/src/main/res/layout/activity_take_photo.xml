@@ -14,11 +14,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="切换"
-        android:textSize="60sp"
-        android:textColor="@color/white"
         android:layout_centerInParent="true"
-        android:onClick="switchCamera"/>
+        android:onClick="switchCamera"
+        android:text="切换"
+        android:textColor="@color/white"
+        android:textSize="60sp" />
 
     <TextView
         android:id="@+id/tv_photo"
@@ -50,6 +50,16 @@
         android:layout_below="@id/tv_start_record"
         android:layout_centerHorizontal="true"
         android:onClick="stopRecord"/>
+    <TextView
+        android:id="@+id/tv_combine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="合成视频"
+        android:textSize="60sp"
+        android:textColor="@color/white"
+        android:layout_below="@id/tv_stop_record"
+        android:layout_centerHorizontal="true"
+        android:onClick="combineRecord"/>
 
     <ImageView
         android:id="@+id/iv_photo"

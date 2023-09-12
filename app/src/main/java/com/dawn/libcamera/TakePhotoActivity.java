@@ -69,6 +69,14 @@ public class TakePhotoActivity extends Activity {
             @Override
             public void getRecord(File file) {
                 Log.i("dawn", "file path " + file.getAbsolutePath());
+                String filePath = Objects.requireNonNull(TakePhotoActivity.this.getExternalFilesDir(null)).getAbsolutePath();
+                String recordPath = filePath + "/record/";
+                File dir = new File(recordPath);
+                if(!dir.exists())
+                    dir.mkdir();
+                FileUtil.copyFile(file.getAbsolutePath(), recordPath + "4.mp4");
+                if(file.exists())
+                    file.delete();
             }
         });
 
@@ -139,6 +147,16 @@ public class TakePhotoActivity extends Activity {
 
     public void stopRecord(View view){
         cameraFactory.stopRecord();
+    }
+
+    public void combineRecord(View view){
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                CombineUtil.combineGif(TakePhotoActivity.this);
+            }
+        }.start();
     }
 
     public static String bitmap2Path(Bitmap bitmap, String path) {

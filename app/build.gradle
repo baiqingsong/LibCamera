@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.dawn.libcamera"
-        minSdk 21
+        minSdk 24
         targetSdk 29
         versionCode 1
         versionName "1.0.1"
@@ -42,4 +42,7 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+    implementation 'com.arthenica:mobile-ffmpeg-full:4.4'
 }
