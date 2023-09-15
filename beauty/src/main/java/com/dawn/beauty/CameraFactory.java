@@ -8,6 +8,7 @@ import android.hardware.Camera;
 import android.opengl.GLSurfaceView;
 import android.text.TextUtils;
 
+import com.dawn.beauty.custom.Camera1Renderer;
 import com.dawn.beauty.custom.CameraEffect;
 import com.dawn.beauty.custom.CameraUtil;
 import com.dawn.beauty.custom.util.CameraUtils;
@@ -67,11 +68,15 @@ public class CameraFactory {
         mCameraUtil.changeOrientation(mCameraOrientation);//设置摄像头方向
     }
 
+    public void createRenderer(Activity activity, GLSurfaceView glSurfaceView, OnCameraListener listener){
+        createRenderer(activity, glSurfaceView, listener, Camera1Renderer.DEFAULT_PREVIEW_WIDTH, Camera1Renderer.DEFAULT_PREVIEW_HEIGHT);
+    }
+
     /**
      * render创建
      * @param glSurfaceView 控件
      */
-    public void createRenderer(Activity activity, GLSurfaceView glSurfaceView, OnCameraListener listener){
+    public void createRenderer(Activity activity, GLSurfaceView glSurfaceView, OnCameraListener listener, int width, int height){
         int number = Camera.getNumberOfCameras();
         if(number == 0)
             return;
@@ -103,7 +108,7 @@ public class CameraFactory {
                 if(listener != null)
                     listener.getRecord(file);
             }
-        });
+        }, width, height, mCameraOrientation);
     }
 
     public void switchCamera(){
@@ -131,6 +136,10 @@ public class CameraFactory {
     public void closeCamera(){
         if(mCameraUtil != null)
             mCameraUtil.closeCamera();
+    }
+
+    public void takePhoto(int picIndex){
+        takePhoto(picIndex, Camera1Renderer.DEFAULT_PREVIEW_WIDTH, Camera1Renderer.DEFAULT_PREVIEW_HEIGHT);
     }
 
     /**

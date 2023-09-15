@@ -99,6 +99,10 @@ public class CameraUtil {
     }
 
     public void createRenderer(Activity activity, GLSurfaceView glSurfaceView, OnCameraListener listener){
+        createRenderer(activity, glSurfaceView, listener, Camera1Renderer.DEFAULT_PREVIEW_WIDTH, Camera1Renderer.DEFAULT_PREVIEW_HEIGHT, 0);
+    }
+
+    public void createRenderer(Activity activity, GLSurfaceView glSurfaceView, OnCameraListener listener, int width, int height, int orientation){
         mListener = listener;
         if(glSurfaceView != null){
             glSurfaceView.setEGLContextClientVersion(GlUtil.getSupportGLVersion(mContext));
@@ -132,7 +136,7 @@ public class CameraUtil {
                     fuTexId = mFURenderer.onDrawFrame(cameraNv21Byte, cameraTexId, cameraWidth, cameraHeight);
                 }
                 getPic(fuTexId, GlUtil.IDENTITY_MATRIX, texMatrix, cameraWidth, cameraHeight);
-                getRecord(fuTexId, texMatrix, mvpMatrix);
+                getRecord(fuTexId, texMatrix, mvpMatrix, orientation);
                 if(mListener != null)
                     mListener.onDrawFrame(fuTexId, GlUtil.IDENTITY_MATRIX, texMatrix, cameraWidth, cameraHeight, currentPicIndex, currentWidth, currentHeight);
                 return fuTexId;
@@ -152,6 +156,7 @@ public class CameraUtil {
 
             }
         });
+        mCameraRenderer.setStartPreview(width, height);
         if(glSurfaceView != null){
             glSurfaceView.setRenderer(mCameraRenderer);
             glSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
@@ -491,7 +496,7 @@ public class CameraUtil {
     }
     private VideoRecordHelper mVideoRecordHelper;
     private volatile boolean isRecordingPrepared = false;//是否开始视频录制
-    public void getRecord(int texId, float[] texMatrix, float[] mvpMatrix){
+    public void getRecord(int texId, float[] texMatrix, float[] mvpMatrix, int orientation){
         if (isRecordingPrepared) {
             mVideoRecordHelper.frameAvailableSoon(texId, texMatrix, GlUtil.IDENTITY_MATRIX);
         }

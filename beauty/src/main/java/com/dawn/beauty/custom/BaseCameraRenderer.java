@@ -268,6 +268,11 @@ public class BaseCameraRenderer implements GLSurfaceView.Renderer {
         }
     }
 
+    public void setStartPreview(int cameraWidth, int cameraHeight){
+        mCameraWidth = cameraWidth;
+        mCameraHeight = cameraHeight;
+    }
+
     public void changeResolution(int cameraWidth, int cameraHeight) {
     }
 

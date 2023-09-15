@@ -30,6 +30,8 @@ public class TakePhotoActivity extends Activity {
     private GLSurfaceView mGlSurfaceView;
     private ImageView ivPhoto;
     private final static int colorDefault = -16380922;
+    private final int default_width = 1920;//3264
+    private final int default_height = 1080;//2448
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +57,7 @@ public class TakePhotoActivity extends Activity {
                 });
                 boolean isAllBlack = hasAllBlack(bitmap);
                 Log.e("dawn", "bitmap is all black " + isAllBlack);
-//                savePhoto(bitmap);
+                savePhoto(bitmap);
 //                combinePhoto(bitmap);
 //                combinePhoto2(bitmap);
 
@@ -78,7 +80,8 @@ public class TakePhotoActivity extends Activity {
                 if(file.exists())
                     file.delete();
             }
-        });
+        }, default_width, default_height);
+        cameraFactory.changeOrientation(1);
 
         new Handler().postDelayed(() -> {
 
@@ -197,13 +200,13 @@ public class TakePhotoActivity extends Activity {
             filePath.mkdir();
 //        Log.i("dawn", "save path " + filePath);
         bitmap2Path(bitmap, filePath.getAbsolutePath() + "/take.png");
-        Log.i("dawn", "save photo png end");
+        Log.i("dawn", "save photo png end : " + filePath.getAbsolutePath() + "/take.png");
         saveBitmap(bitmap, filePath.getAbsolutePath() + "/take_.png");
         Log.i("dawn", "save photo jpg end");
-        Bitmap bitmapNew = Bitmap.createScaledBitmap(bitmap, 960, 540, true);
-        bitmap2Path(bitmapNew, filePath.getAbsolutePath() + "/take2.png");
-        bitmapNew.recycle();
-        Log.i("dawn", "save half photo end");
+//        Bitmap bitmapNew = Bitmap.createScaledBitmap(bitmap, 960, 540, true);
+//        bitmap2Path(bitmapNew, filePath.getAbsolutePath() + "/take2.png");
+//        bitmapNew.recycle();
+//        Log.i("dawn", "save half photo end");
     }
 
     private void combinePhoto(Bitmap bitmap){
