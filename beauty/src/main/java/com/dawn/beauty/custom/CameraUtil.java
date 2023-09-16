@@ -99,10 +99,10 @@ public class CameraUtil {
     }
 
     public void createRenderer(Activity activity, GLSurfaceView glSurfaceView, OnCameraListener listener){
-        createRenderer(activity, glSurfaceView, listener, Camera1Renderer.DEFAULT_PREVIEW_WIDTH, Camera1Renderer.DEFAULT_PREVIEW_HEIGHT, 0);
+        createRenderer(activity, glSurfaceView, listener, Camera1Renderer.DEFAULT_PREVIEW_WIDTH, Camera1Renderer.DEFAULT_PREVIEW_HEIGHT);
     }
 
-    public void createRenderer(Activity activity, GLSurfaceView glSurfaceView, OnCameraListener listener, int width, int height, int orientation){
+    public void createRenderer(Activity activity, GLSurfaceView glSurfaceView, OnCameraListener listener, int width, int height){
         mListener = listener;
         if(glSurfaceView != null){
             glSurfaceView.setEGLContextClientVersion(GlUtil.getSupportGLVersion(mContext));
@@ -136,7 +136,7 @@ public class CameraUtil {
                     fuTexId = mFURenderer.onDrawFrame(cameraNv21Byte, cameraTexId, cameraWidth, cameraHeight);
                 }
                 getPic(fuTexId, GlUtil.IDENTITY_MATRIX, texMatrix, cameraWidth, cameraHeight);
-                getRecord(fuTexId, texMatrix, mvpMatrix, orientation);
+                getRecord(fuTexId, texMatrix, mvpMatrix, takePhotoOrientation);
                 if(mListener != null)
                     mListener.onDrawFrame(fuTexId, GlUtil.IDENTITY_MATRIX, texMatrix, cameraWidth, cameraHeight, currentPicIndex, currentWidth, currentHeight);
                 return fuTexId;
@@ -494,11 +494,19 @@ public class CameraUtil {
         if(mCameraRenderer != null)
             mCameraRenderer.closeCamera();
     }
+
+    /**
+     * 打开相机
+     */
+    public void openCamera(){
+        if(mCameraRenderer != null)
+            mCameraRenderer.openCamera(1);
+    }
     private VideoRecordHelper mVideoRecordHelper;
     private volatile boolean isRecordingPrepared = false;//是否开始视频录制
     public void getRecord(int texId, float[] texMatrix, float[] mvpMatrix, int orientation){
         if (isRecordingPrepared) {
-            mVideoRecordHelper.frameAvailableSoon(texId, texMatrix, GlUtil.IDENTITY_MATRIX);
+            mVideoRecordHelper.frameAvailableSoon(texId, texMatrix, GlUtil.IDENTITY_MATRIX, orientation);
         }
     }
 
@@ -506,7 +514,7 @@ public class CameraUtil {
      * 开始录制
      */
     public void onStartRecord(GLSurfaceView surfaceView) {
-        mVideoRecordHelper.startRecording(surfaceView, mCameraRenderer.getCameraHeight(), mCameraRenderer.getCameraWidth());
+        mVideoRecordHelper.startRecording(surfaceView, mCameraRenderer.getCameraWidth(), mCameraRenderer.getCameraHeight());
     }
 
     public void onStopRecord() {

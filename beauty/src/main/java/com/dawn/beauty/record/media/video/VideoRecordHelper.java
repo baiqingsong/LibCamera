@@ -166,7 +166,7 @@ public class VideoRecordHelper {
      * @param texMatrix
      * @param mvpMatrix
      */
-    public void frameAvailableSoon(int texId, float[] texMatrix, float[] mvpMatrix) {
+    public void frameAvailableSoon(int texId, float[] texMatrix, float[] mvpMatrix, int orientation) {
         synchronized (mRecordLock) {
             if (mVideoEncoder != null) {
                 if (frameAvailableTime == 0L) {
@@ -178,7 +178,10 @@ public class VideoRecordHelper {
                         Matrix.rotateM(matrix, 0, 90f, 0f, 0f, 1f);
                         break;
                     case 180:
-                        Matrix.rotateM(matrix, 0, 180f, 0f, 0f, 1f);
+                        if(orientation == 1)
+                            Matrix.rotateM(matrix, 0, 180f, 0f, 0f, 1f);
+                        else
+                            Matrix.rotateM(matrix, 0, 180f, 1f, 0f, 0f);
                         break;
                     case 90:
                         Matrix.rotateM(matrix, 0, 270f, 0f, 0f, 1f);

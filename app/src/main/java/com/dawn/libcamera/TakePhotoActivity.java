@@ -39,7 +39,6 @@ public class TakePhotoActivity extends Activity {
         mGlSurfaceView = findViewById(R.id.glSurfaceView);
         ivPhoto = findViewById(R.id.iv_photo);
 
-        CameraFactory.getInstance(this).initCamera(authpack.A());
         cameraFactory = CameraFactory.getInstance(this);
         cameraFactory.createRenderer(this, mGlSurfaceView, new OnCameraListener() {
             @Override

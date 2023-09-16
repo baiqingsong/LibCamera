@@ -108,7 +108,7 @@ public class CameraFactory {
                 if(listener != null)
                     listener.getRecord(file);
             }
-        }, width, height, mCameraOrientation);
+        }, width, height);
     }
 
     public void switchCamera(){
@@ -136,6 +136,14 @@ public class CameraFactory {
     public void closeCamera(){
         if(mCameraUtil != null)
             mCameraUtil.closeCamera();
+    }
+
+    /**
+     * 打开相机
+     */
+    public void openCamera(){
+        if(mCameraUtil != null)
+            mCameraUtil.openCamera();
     }
 
     public void takePhoto(int picIndex){
