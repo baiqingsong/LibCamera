@@ -30,8 +30,8 @@ public class TakePhotoActivity extends Activity {
     private GLSurfaceView mGlSurfaceView;
     private ImageView ivPhoto;
     private final static int colorDefault = -16380922;
-    private final int default_width = 1920;//3264
-    private final int default_height = 1080;//2448
+    private final int default_width = 3264;//3264   1920
+    private final int default_height = 2448;//2448  1080
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
