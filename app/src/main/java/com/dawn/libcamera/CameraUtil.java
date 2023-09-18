@@ -39,4 +39,31 @@ public class CameraUtil {
         }
         return true;//四个边距都是黑色默认就都是黑色
     }
+
+    /**
+     * 判断图片是否四周都是黑色的
+     */
+    public static boolean isAllBlack(Bitmap bitmap){
+        //获取图片的宽高
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        //获取图片的像素
+        int[] pixels = new int[width * height];
+        bitmap.getPixels(pixels, 0, width, 0, 0, width, height);//获取图片的像素
+        //检查图片是否全黑
+        boolean isAllBlack = true;
+        for (int pixel : pixels) {
+            // 获取 RGB 值
+            int red = Color.red(pixel);
+            int green = Color.green(pixel);
+            int blue = Color.blue(pixel);
+
+            // 判断是否为黑色
+            if (red != 0 || green != 0 || blue != 0) {
+                isAllBlack = false;
+                break;
+            }
+        }
+        return isAllBlack;
+    }
 }
