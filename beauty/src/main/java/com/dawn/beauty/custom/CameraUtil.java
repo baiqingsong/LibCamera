@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.hardware.Camera;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.opengl.EGL14;
 import android.opengl.GLSurfaceView;
 import android.text.TextUtils;
@@ -29,6 +33,8 @@ public class CameraUtil {
     protected static int takePhotoOrientation = 0;//摄像头镜像显示还是同向显示
     protected BaseCameraRenderer mCameraRenderer;
     protected FURenderer mFURenderer;
+    private SensorManager mSensorManager;
+    private Sensor mSensor;
 
     protected volatile boolean mIsNeedTakePic = false;//是否需要拍照
     private int currentPicIndex;//当前拍照编号
@@ -47,6 +53,32 @@ public class CameraUtil {
     private float xiaoqingxin_level = 0.7f;//小清新级别
 
     public OnCameraListener mListener;//回调函数
+    public SensorEventListener mSensorEventListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+                float x = event.values[0];
+                float y = event.values[1];
+                float z = event.values[2];
+                if (Math.abs(x) > 3 || Math.abs(y) > 3) {
+                    if (Math.abs(x) > Math.abs(y)) {
+                        if(mFURenderer != null){
+                            mFURenderer.setTrackOrientation(x > 0 ? 0 : 180);
+                        }
+                    } else {
+                        if(mFURenderer != null){
+                            mFURenderer.setTrackOrientation(y > 0 ? 90 : 270);
+                        }
+                    }
+                }
+            }
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int i) {
+
+        }
+    };//传感器监听
     /**
      * 摄像头初始化
      */
@@ -87,9 +119,12 @@ public class CameraUtil {
     public void rendererOnResume(){
         if(mCameraRenderer != null)
             mCameraRenderer.onResume();
+
+        mSensorManager.registerListener(mSensorEventListener, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     public void rendererOnPause(){
+        mSensorManager.unregisterListener(mSensorEventListener);
         if(mCameraRenderer != null)
             mCameraRenderer.onPause();
     }
@@ -161,6 +196,8 @@ public class CameraUtil {
             glSurfaceView.setRenderer(mCameraRenderer);
             glSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
         }
+        mSensorManager = (SensorManager) activity.getSystemService(Context.SENSOR_SERVICE);
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mVideoRecordHelper = new VideoRecordHelper(mContext, new OnVideoRecordingListener() {
             @Override
             public void onPrepared() {

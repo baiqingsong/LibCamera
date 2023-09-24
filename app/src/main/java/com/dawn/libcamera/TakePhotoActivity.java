@@ -84,8 +84,8 @@ public class TakePhotoActivity extends Activity {
 
         new Handler().postDelayed(() -> {
 
-            cameraFactory.setBeautyParam(1, 0.8f, 0.6f, 0.8f);
-            cameraFactory.setFilterParam(1, 1, 0.7f, 1, 0.7f, 0.7f);
+//            cameraFactory.setBeautyParam(1, 0.8f, 0.6f, 0.8f);
+//            cameraFactory.setFilterParam(1, 1, 0.7f, 1, 0.7f, 0.7f);
             cameraFactory.selectFilter(CameraFactory.FILTER_TYPE.FILTER_MI_TAO);
         }, 500);
 
