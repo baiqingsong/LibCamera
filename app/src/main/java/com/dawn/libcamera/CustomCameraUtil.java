@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.util.Log;
 
-public class CameraUtil {
+public class CustomCameraUtil {
     private final static int colorDefault = -16380922;
     private static int colorStart;//第一个颜色
     /**

@@ -15,10 +15,10 @@ import android.util.Log;
 import android.view.MotionEvent;
 
 import com.dawn.beauty.R;
-import com.dawn.beauty.custom.util.GlUtil;
 import com.dawn.beauty.gles.ProgramLandmarks;
 import com.dawn.beauty.gles.ProgramTexture2d;
 import com.dawn.beauty.gles.ProgramTextureOES;
+import com.dawn.beauty.gles.core.GlUtil;
 
 import java.util.Arrays;
 import java.util.concurrent.CountDownLatch;

@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 
 import com.dawn.beauty.CameraFactory;
 import com.dawn.beauty.OnCameraListener;
+import com.dawn.beauty.gles.core.GlUtil;
 import com.dawn.beauty.utils.Constant;
 
 import java.io.File;
@@ -30,8 +31,8 @@ public class TakePhotoActivity extends Activity {
     private GLSurfaceView mGlSurfaceView;
     private ImageView ivPhoto;
     private final static int colorDefault = -16380922;
-    private final int default_width = 3264;//3264   1920
-    private final int default_height = 2448;//2448  1080
+    private final int default_width = 1920;//3264   1920
+    private final int default_height = 1080;//2448  1080
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,8 +87,8 @@ public class TakePhotoActivity extends Activity {
 
 //            cameraFactory.setBeautyParam(1, 0.8f, 0.6f, 0.8f);
 //            cameraFactory.setFilterParam(1, 1, 0.7f, 1, 0.7f, 0.7f);
-            cameraFactory.selectFilter(CameraFactory.FILTER_TYPE.FILTER_MI_TAO);
-        }, 500);
+//            cameraFactory.selectFilter(CameraFactory.FILTER_TYPE.FILTER_MI_TAO);
+        }, 5000);
 
 //        cameraFactory2 = CameraFactory2.getInstance();
 //        cameraFactory2.cameraInit(this, authpack.A());
@@ -135,12 +136,36 @@ public class TakePhotoActivity extends Activity {
     public void switchCamera(View view){
 //        cameraFactory.switchCamera();
     }
-
+    private int currentFilter = 0;
     public void takePhoto(View view){
         //2592*1944
-        cameraFactory.takePhoto(1, 1920, 1080);
+//        cameraFactory.takePhoto(1, 1920, 1080);
 //        if(cameraFactory2 != null)
 //            cameraFactory2.takePhoto();
+        currentFilter ++;
+        switch (currentFilter){
+            case 1:
+                cameraFactory.selectFilter(CameraFactory.FILTER_TYPE.FILTER_YUAN_TU);
+                break;
+            case 2:
+                cameraFactory.selectFilter(CameraFactory.FILTER_TYPE.FILTER_MI_TAO);
+                break;
+            case 3:
+                cameraFactory.selectFilter(CameraFactory.FILTER_TYPE.FILTER_HEI_BAI);
+                break;
+            case 4:
+                cameraFactory.selectFilter(CameraFactory.FILTER_TYPE.FILTER_XIAO_QING_XIN);
+                break;
+            case 5:
+                cameraFactory.selectFilter(CameraFactory.FILTER_TYPE.FILTER_GE_XING);
+                break;
+            case 6:
+                cameraFactory.selectFilter(CameraFactory.FILTER_TYPE.FILTER_ZHI_GAN_HUI);
+                break;
+            default:
+                currentFilter = 0;
+                break;
+        }
     }
 
     public void startRecord(View view){

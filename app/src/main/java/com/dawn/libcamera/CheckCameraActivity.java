@@ -58,7 +58,7 @@ public class CheckCameraActivity extends Activity {
 
             @Override
             public void getPhoto(Bitmap bitmap, int picIndex, int width, int height) {
-                boolean hasAllBlack = CameraUtil.isAllBlack(bitmap);
+                boolean hasAllBlack = CustomCameraUtil.isAllBlack(bitmap);
                 Log.e("dawn", "check camera status " + hasAllBlack);
                 finish();
             }

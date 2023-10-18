@@ -17,8 +17,8 @@ import com.dawn.beauty.FURenderer;
 import com.dawn.beauty.OnCameraListener;
 import com.dawn.beauty.R;
 import com.dawn.beauty.custom.util.CameraUtils;
-import com.dawn.beauty.custom.util.GlUtil;
 import com.dawn.beauty.entity.Effect;
+import com.dawn.beauty.gles.core.GlUtil;
 import com.dawn.beauty.param.BeautificationParam;
 import com.dawn.beauty.record.media.video.OnVideoRecordingListener;
 import com.dawn.beauty.record.media.video.VideoRecordHelper;
@@ -153,9 +153,7 @@ public class CameraUtil {
                     }
                     if(mListener != null)
                         mListener.onCameraCreate();
-//                    selectCurrentM();
-//                    if(Constant.TakePhotoBeauty)
-//                        selectCurrentSticker();
+                    selectM5();
                 }
             }
 
